@@ -56,7 +56,10 @@ const FavouritesList = ({ users, handleFavourites, countries, nationalities }) =
               <S.User
                 key={index}
               >
-                <S.UserPicture src={user?.picture.large} alt="" />
+
+                <div style={{ height: "100%" }}>
+                  <S.UserPicture src={user?.picture.large} alt="" />
+                </div>
                 <S.UserInfo>
                   <Text size="22px" bold>
                     {user?.name.title} {user?.name.first} {user?.name.last}

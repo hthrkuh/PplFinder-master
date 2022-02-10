@@ -6,6 +6,7 @@ import { addToFavourites, removeFromFavourites, getAllFavourites } from "../../u
 import useFavorites from "utils/useFavorites"
 import * as S from "./style";
 import FavouriteList from "components/FavouritesList";
+import { Grid } from "@material-ui/core";
 const countries = ["Brazil", "Australia", "Canada", "Germany", "Norway", "United States"];
 const nationalities = ["BR", "AU", "CA", "DE", "NO", "US"];
 
@@ -27,31 +28,39 @@ const Home = (props) => {
   return (
     <S.Home>
       <S.Content>
-        <S.Header>
-          <Text size="64px" bold>
-            {props.tab === 0 ? "PplFinder" : "Favourites"}
-          </Text>
-        </S.Header>
-        {props.tab === 0 ?
-          <UserList
-            users={users}
-            isLoading={isLoading}
-            favourites={favoritesUUIDs}
-            handleFavourites={switchFavorites}
-            handleFetch={handleFetch}
-            countries={countries}
-            nationalities={nationalities}
-          />
+        <Grid container>
+          <Grid item xs={12}>
 
-          : <FavouriteList
-            users={favoritesUsers}
-            favourites={favoritesUUIDs}
-            handleFavourites={switchFavorites}
-            countries={countries}
-            nationalities={nationalities}
-          />
-        }
+            <Grid container justify="center">
+              <Grid item>
+                <S.Header>
+                  <Text size="5rem" bold>
+                    {props.tab === 0 ? "PplFinder" : "Favourites"}
+                  </Text>
+                </S.Header>
+                {props.tab === 0 ?
+                  <UserList
+                    users={users}
+                    isLoading={isLoading}
+                    favourites={favoritesUUIDs}
+                    handleFavourites={switchFavorites}
+                    handleFetch={handleFetch}
+                    countries={countries}
+                    nationalities={nationalities}
+                  />
 
+                  : <FavouriteList
+                    users={favoritesUsers}
+                    favourites={favoritesUUIDs}
+                    handleFavourites={switchFavorites}
+                    countries={countries}
+                    nationalities={nationalities}
+                  />
+                }
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
       </S.Content>
     </S.Home>
   );
