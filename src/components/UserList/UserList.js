@@ -7,10 +7,9 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import * as S from "./style";
 import useFavorites from "utils/useFavorites";
 
-const countries = ["Brazil", "Australia", "Canada", "Germany", "Norway", "United States"];
-const nationalities = ["BR", "AU", "CA", "DE", "NO", "US"];
-const UserList = ({ users, isLoading, handleFetch, favourites, handleFavourites }) => {
-  // const [hoveredUserId, setHoveredUserId] = useState();
+
+const UserList = ({ users, isLoading, handleFetch, favourites, handleFavourites, nationalities, countries
+}) => {
   const [selectedNationalities, setSelectedNationalities] = useState([]);
 
   const {

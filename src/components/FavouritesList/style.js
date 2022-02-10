@@ -54,3 +54,24 @@ export const Filters = styled.div`
     margin-inline-end: 8px;
   }
 `;
+
+
+export const CSVLinkrWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  top: 3rem;
+  right: 0;
+  margin: 0;
+  font-size: 0.8rem;
+  padding: 0.7rem;
+  text-align: center;
+
+  > a {
+    display: flex;
+    text-decoration: none;
+    color: #84ffff;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+`;

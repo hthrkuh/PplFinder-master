@@ -6,6 +6,8 @@ import { addToFavourites, removeFromFavourites, getAllFavourites } from "../../u
 import useFavorites from "utils/useFavorites"
 import * as S from "./style";
 import FavouriteList from "components/FavouritesList";
+const countries = ["Brazil", "Australia", "Canada", "Germany", "Norway", "United States"];
+const nationalities = ["BR", "AU", "CA", "DE", "NO", "US"];
 
 const Home = (props) => {
   const { users, isLoading, fetchUsers, handleLoadMore } = usePeopleFetch();
@@ -14,40 +16,14 @@ const Home = (props) => {
     favoritesUsers,
     favoritesUUIDs,
     switchFavorites,
-    // isUserInFavorites,
-    // handleMouseEnter,
-    // handleMouseLeave,
-    // hoveredUserId,
   } = useFavorites()
-
-  // const [favourites, setFavourites] = useState([]);
 
   const handleFetch = async (nationalities, page) => {
     await fetchUsers(nationalities, page)
   }
 
 
-  // useEffect(() => {
-  //   setFavourites(getAllFavourites());
-  // }, [])
 
-
-  // const handleClickFavourites = (index) => {
-  //   if (!favourites.includes(index)) {
-  //     addToFavourites(index)
-  //     let new_favourites = favourites.splice(0);
-  //     new_favourites.push(index)
-  //     setFavourites(new_favourites);
-
-  //   } else {
-  //     //remove fav item
-  //     removeFromFavourites(index)
-  //     let new_favourites = favourites.splice(0);
-  //     new_favourites.splice(new_favourites.indexOf(index), 1)
-  //     setFavourites(new_favourites);
-  //   }
-  // }
-  // debugger
   return (
     <S.Home>
       <S.Content>
@@ -64,13 +40,17 @@ const Home = (props) => {
             handleFavourites={switchFavorites}
             handleFetch={handleFetch}
             handleLoadMore={handleLoadMore}
-          // page={page}
+            countries={countries}
+            nationalities={nationalities}
           />
 
           : <FavouriteList
             users={favoritesUsers}
             favourites={favoritesUUIDs}
-            handleFavourites={switchFavorites} />
+            handleFavourites={switchFavorites}
+            countries={countries}
+            nationalities={nationalities}
+          />
         }
 
       </S.Content>
