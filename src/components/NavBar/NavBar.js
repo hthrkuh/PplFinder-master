@@ -4,11 +4,6 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
 const NavBar = (props) => {
-  // const [value, setValue] = useState(0);
-
-  // const handleChange = (_e, newValue) => {
-  //   setValue(newValue);
-  // };
   const { value, handleChange } = props
   return (
     <AppBar position="static" color="transparent" style={{ position: "fixed", top: 0 }}>

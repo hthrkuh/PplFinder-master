@@ -10,7 +10,7 @@ const countries = ["Brazil", "Australia", "Canada", "Germany", "Norway", "United
 const nationalities = ["BR", "AU", "CA", "DE", "NO", "US"];
 
 const Home = (props) => {
-  const { users, isLoading, fetchUsers, handleLoadMore } = usePeopleFetch();
+  const { users, isLoading, fetchUsers } = usePeopleFetch();
 
   const {
     favoritesUsers,
@@ -39,7 +39,6 @@ const Home = (props) => {
             favourites={favoritesUUIDs}
             handleFavourites={switchFavorites}
             handleFetch={handleFetch}
-            handleLoadMore={handleLoadMore}
             countries={countries}
             nationalities={nationalities}
           />
