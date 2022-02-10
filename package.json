@@ -3,7 +3,8 @@
   "version": "1.0.7",
   "bin": "./bin/cli.js",
   "license": "MIT",
-  "repository": "https://github.com/powerlink/PplFinder",
+  "repository": "https://github.com/hthrkuh/PplFinder-master",
+  "homepage": "https://hthrkuh.github.io/PplFinder-master",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
@@ -23,6 +24,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -48,6 +51,7 @@
     ]
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0"
+    "babel-eslint": "^10.1.0",
+    "gh-pages": "^3.2.3"
   }
 }
