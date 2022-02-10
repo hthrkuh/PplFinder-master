@@ -43,7 +43,8 @@ const UserList = ({ users, isLoading, handleFetch, favourites, handleFavourites,
     } else {
       setSelectedNationalities(selectedNationalities.length === 1 ?
         [] : selectedNationalities.filter((natItem) => natItem !== nat));
-      handleFetch()
+      handleFetch(selectedNationalities.length === 1 ?
+        [] : selectedNationalities.filter((natItem) => natItem !== nat))
     }
   }
 
