@@ -91,6 +91,7 @@ const UserList = ({ users, isLoading, handleFetch, favourites, handleFavourites,
                   {user?.location.city} {user?.location.country}
                 </Text>
               </S.UserInfo>
+
               <S.IconButtonWrapper isVisible={
                 favourites.includes(uuid) ? true :
                   (index === hoveredUserId)}

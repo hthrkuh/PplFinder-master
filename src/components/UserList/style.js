@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const UserList = styled.div`
   display: flex;
+  align-items: center;
+  align-items: stretch;
   flex-direction: column;
 `;
 
@@ -10,9 +12,12 @@ export const List = styled.div`
   flex-direction: column;
   gap: 35px;
   width: 500px;
+  width: 100%;
   height: calc(100vh - 270px);
   margin-block-start: 30px;
   overflow-y: auto;
+  align-self: flex-end;
+  align-items: flex-end;
 `;
 
 export const User = styled.div`
@@ -29,6 +34,7 @@ export const UserInfo = styled.div`
   max-height: 128px;
   gap: 2px;
   overflow: hidden;
+
 `;
 
 export const UserPicture = styled.img`
