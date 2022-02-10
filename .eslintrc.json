@@ -1,7 +1,12 @@
 {
-  "plugins": ["react-hooks"],
+  "plugins": [
+    "react-hooks"
+  ],
+  // "extends": "eslint:recommended",
   "rules": {
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+    // "react-hooks/exhaustive-deps": "off"
   },
   "parser": "babel-eslint"
 }

@@ -5,42 +5,74 @@ import CheckBox from "components/CheckBox";
 import IconButton from "@material-ui/core/IconButton";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import * as S from "./style";
+import useFavorites from "utils/useFavorites";
 
-const countries = ["Brazil", "Australia", "Canada", "Germany", "Norway"];
+const countries = ["Brazil", "Australia", "Canada", "Germany", "Norway", "United States"];
+const nationalities = ["BR", "AU", "CA", "DE", "NO", "US"];
+const UserList = ({ users, isLoading, handleFetch, favourites, handleFavourites }) => {
+  // const [hoveredUserId, setHoveredUserId] = useState();
+  const [selectedNationalities, setSelectedNationalities] = useState([]);
 
-const UserList = ({ users, isLoading }) => {
-  const [hoveredUserId, setHoveredUserId] = useState();
-  const [selectedCountries, setSelectedCountries] = useState([]);
-  const handleMouseEnter = (index) => {
-    setHoveredUserId(index);
-  };
+  const {
+    handleMouseEnter,
+    handleMouseLeave,
+    hoveredUserId,
+  } = useFavorites()
 
-  const handleMouseLeave = () => {
-    setHoveredUserId();
-  };
 
-  const handleCheckboxClick = (country) => {
+  const handleCheckboxClick = (nat) => {
     if (window.event.target.checked) {
-      setSelectedCountries(selectedCountries => [...selectedCountries, country]);
+      setSelectedNationalities(selectedNationalities => [...selectedNationalities, nat]);
+      handleFetch([...selectedNationalities, nat])
     } else {
-      setSelectedCountries(selectedCountries.length === 1 ? [] : selectedCountries.filter(function (countryItem) { return countryItem !== country }));
+      setSelectedNationalities(selectedNationalities.length === 1 ?
+        [] : selectedNationalities.filter((natItem) => natItem !== nat));
+      handleFetch()
     }
   }
+
+  const handleClickFavourites = (index) => {
+    handleFavourites(index);
+  }
+
+  const [page, setPage] = useState(1);
+  const handleLoadMore = () => {
+    setPage(page + 1);
+  };
+
+  const handleScroll = async (e) => {
+    // checks position on list: if reached bottom -> load more users
+    const x = e.target.scrollHeight - e.target.scrollTop
+    const y = e.target.clientHeight;
+    console.log(x, y)
+    const bottom = x === y
+    if (handleLoadMore && bottom) {
+      handleLoadMore()
+    }
+  };
+  useEffect(() => {
+    async function more() {
+      await handleFetch(selectedNationalities, page)
+    }
+    more()
+  }, [page])
+
+  useEffect(() => {
+    setPage(1);
+  }, [selectedNationalities])
 
   return (
     <S.UserList>
       <S.Filters>
-        {/* <CheckBox value="BR" label="Brazil" />
-        <CheckBox value="AU" label="Australia" />
-        <CheckBox value="CA" label="Canada" />
-        <CheckBox value="DE" label="Germany" /> */
-        }
         {countries.map((country, index) => {
-          return (<CheckBox key={index} value={country} label={country} onChange={() => handleCheckboxClick(country)} />)
+          return (<CheckBox key={index}
+            label={country} onChange={() => handleCheckboxClick(nationalities[index])} />)
         })}
       </S.Filters>
-      <S.List>
+      <S.List onScroll={handleScroll}>
         {users.map((user, index) => {
+
+          const uuid = user.login.uuid;
           return (
             <S.User
               key={index}
@@ -60,7 +92,10 @@ const UserList = ({ users, isLoading }) => {
                   {user?.location.city} {user?.location.country}
                 </Text>
               </S.UserInfo>
-              <S.IconButtonWrapper isVisible={index === hoveredUserId}>
+              <S.IconButtonWrapper isVisible={
+                favourites.includes(uuid) ? true :
+                  (index === hoveredUserId)}
+                onClick={() => handleClickFavourites(user, index)}>
                 <IconButton>
                   <FavoriteIcon color="error" />
                 </IconButton>
