@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Text from "components/Text";
 import UserList from "components/UserList";
 import { usePeopleFetch } from "hooks";
-import { addToFavourites, removeFromFavourites, getAllFavourites } from "../../utils/fav_storage"
 import useFavorites from "utils/useFavorites"
 import * as S from "./style";
 import FavouriteList from "components/FavouritesList";
