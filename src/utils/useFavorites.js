@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useFavorites = () => {
-  console.log("useFavotie called");
+  // console.log("useFavotie called");
   const [hoveredUserId, setHoveredUserId] = useState();
   const [favoritesUsers, setFavoritesUsers] = useState(
     JSON.parse(localStorage.getItem("favorites")) || []
