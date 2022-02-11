@@ -59,7 +59,7 @@ const UserList = ({ users, isLoading, handleFetch, favourites, handleFavourites,
 
   const handleScroll = async (e) => {
     // checks position on list: if reached bottom -> load more users
-    const x = e.target.scrollHeight - e.target.scrollTop + 20
+    const x = e.target.scrollHeight - e.target.scrollTop + 10
     const y = e.target.clientHeight;
     console.log(x, y)
     const bottom = x > y
