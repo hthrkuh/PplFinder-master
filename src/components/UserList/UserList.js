@@ -59,11 +59,11 @@ const UserList = ({ users, isLoading, handleFetch, favourites, handleFavourites,
 
   const handleScroll = async (e) => {
     // checks position on list: if reached bottom -> load more users
-    const x = e.target.scrollHeight - e.target.scrollTop + 10
+    const x = e.target.scrollHeight - e.target.scrollTop
     const y = e.target.clientHeight;
-    console.log(x, y)
-    const bottom = x > y
-    if (handleLoadMore && bottom) {
+    // console.log(x, y)
+    const bottom = x - 50 <= y
+    if (handleLoadMore && (bottom)) {
       handleLoadMore()
     }
   };
@@ -81,8 +81,8 @@ const UserList = ({ users, isLoading, handleFetch, favourites, handleFavourites,
   return (
 
     <Grid container justify="center" className={classes.root} >
-      <Grid item justify="center" xs={12}>
-        <Grid container justify="center" sm={12} >
+      <Grid item xs={12}>
+        <Grid container justify="center"  >
           <Grid item xl={12}>
             <S.UserList>
               <S.Filters>
