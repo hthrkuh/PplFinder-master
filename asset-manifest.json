@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/PplFinder-master/static/js/main.52e944aa.chunk.js",
-    "main.js.map": "/PplFinder-master/static/js/main.52e944aa.chunk.js.map",
+    "main.js": "/PplFinder-master/static/js/main.11b5634d.chunk.js",
+    "main.js.map": "/PplFinder-master/static/js/main.11b5634d.chunk.js.map",
     "runtime-main.js": "/PplFinder-master/static/js/runtime-main.f56aa692.js",
     "runtime-main.js.map": "/PplFinder-master/static/js/runtime-main.f56aa692.js.map",
     "static/js/2.74f6fe00.chunk.js": "/PplFinder-master/static/js/2.74f6fe00.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.f56aa692.js",
     "static/js/2.74f6fe00.chunk.js",
-    "static/js/main.52e944aa.chunk.js"
+    "static/js/main.11b5634d.chunk.js"
   ]
 }
