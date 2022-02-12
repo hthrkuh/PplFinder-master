@@ -118,12 +118,13 @@ const UserList = ({ users, isLoading, handleFetch, favourites, handleFavourites,
                         </Text>
                       </S.UserInfo>
 
-                      <S.IconButtonWrapper isVisible={
-                        favourites.includes(uuid) ? true :
-                          (index === hoveredUserId)}
+                      <S.IconButtonWrapper
+                        isVisible={true}
                         onClick={() => handleClickFavourites(user, index)}>
                         <IconButton>
-                          <FavoriteIcon color="error" />
+                          <FavoriteIcon
+                            color={favourites.includes(uuid) ? "error" : "action"}
+                          />
                         </IconButton>
                       </S.IconButtonWrapper>
                     </S.User>
