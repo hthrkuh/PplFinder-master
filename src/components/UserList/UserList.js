@@ -123,7 +123,7 @@ const UserList = ({ users, isLoading, handleFetch, favourites, handleFavourites,
                         onClick={() => handleClickFavourites(user, index)}>
                         <IconButton>
                           <FavoriteIcon
-                            color={favourites.includes(uuid) ? "error" : "action"}
+                            color={(favourites.includes(uuid) || (index === hoveredUserId)) ? "error" : "action"}
                           />
                         </IconButton>
                       </S.IconButtonWrapper>
