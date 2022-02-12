@@ -7,7 +7,7 @@ import { Grid, Typography } from "@material-ui/core";
 const NavBar = (props) => {
   const { value, handleChange } = props
   return (
-    <AppBar position="static" color="transparent" style={{ position: "fixed", top: 0 }}>
+    <AppBar position="static" color="#303030" style={{ position: "fixed", top: 0 }}>
 
       <Typography variant="h4" style={{
         whiteSpace: "pre-wrap"
