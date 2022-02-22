@@ -36,7 +36,8 @@ export const UserInfo = styled.div`
 `;
 
 export const UserPicture = styled.img`
-width: 100%;
+  width: 100%;
+  height: 128px;
   border-radius: 45%;
 `;
 
